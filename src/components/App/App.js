@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import ChoreItem from '../ChoreItem/ChoreItem';
 
 class App extends Component {
   constructor(props){
@@ -13,11 +14,9 @@ class App extends Component {
   }
   choreListItemArray
   render() {
-    let choreListItemArray = this.state.choreList.map(chore => {
-      return (<label className="c-checklist__item">
-                <input type="checkbox" value={chore}/> {chore} <br />
-              </label>
-       )});
+    let choreListItemArray = this.state.choreList.map((chore, i) => {
+      return (<ChoreItem key={i} chore={chore} />)
+    });
     console.log('choreListItemArray', choreListItemArray)
         return (
       <div className="App">
