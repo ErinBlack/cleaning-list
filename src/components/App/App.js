@@ -8,14 +8,17 @@ class App extends Component {
       choreList: [
         {
           name: 'Clean Kitchen Surfaces',
-          lastCompleted: '05/29/2018 22:50:4'
+          frequency: 3,
+          lastCompleted: '05/29/2018 22:50:4',
         },
         {
           name: 'Vaccuum Dining Room Rug',
+          frequency: 14,
           lastCompleted: '05/27/2018 17:50:4'
         },
         {
           name: 'Clean Thorin\'s Cage',
+          frequency: 7,
           lastCompleted: '05/24/2018 17:50:4'
         } 
       ],
