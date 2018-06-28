@@ -29,7 +29,6 @@ class App extends Component {
     let choreListItemArray = this.state.choreList.map((chore, i) => {
       return (<ChoreItem key={i} chore={chore.name} />)
     });
-    console.log('choreListItemArray', choreListItemArray)
         return (
       <div className="App">
         <form >
