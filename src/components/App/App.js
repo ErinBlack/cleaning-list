@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import ChoreItem from '../ChoreItem/ChoreItem';
 import AddChore from '../AddChore/AddChore';
+import Header from '../Header/Header';
 
 
 let choreList = [
@@ -38,6 +39,7 @@ class App extends Component {
   render() {
     return (
         <div className="App">
+          {<Header/>}
           <div>
             {<AddChore choreList={this.state.choreList} addChore={this.addChore}/>}
           </div>
