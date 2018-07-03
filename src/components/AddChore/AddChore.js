@@ -4,7 +4,7 @@ import FrequencySelect from '../FrequencySelect/FrequencySelect';
 const frequencyChoices = [
     {
         text: '- Select -',
-        value: 0
+        value: ''
     },
     {
         text: 'Every Day',
@@ -40,21 +40,23 @@ class AddChore extends Component {
         } // end this.state
     } //end constructor
 
-
+    
     handleChangeFor = propertyName => event => {
+        console.log('in handleChangeForm with', event.target.value)
         this.setState({
           newChore: {
-            ...this.state.chore,
+            ...this.state.newChore,
            [propertyName]: event.target.value,
           } // end newChore
         }) // end setState
     } // end handleChangeFor
 
     handleSubmit = (e) => {
+        console.log('in handleSubmit with',this.state.newChore )
         e.preventDefault();
-        const choreList = this.props.choreList;
+        // const choreList = this.props.choreList;
         // call function in App.js
-        this.props.addChore(this.state.chore);
+        this.props.addChore(this.state.newChore);
         
         // reset the form
         this.setState({
@@ -64,6 +66,8 @@ class AddChore extends Component {
             }
         }) // end setState
     } // end handleSubmit
+
+    
 
     render() {
         return (

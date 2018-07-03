@@ -1,10 +1,8 @@
 import React, { Component } from 'react';
 import ChoreItem from '../ChoreItem/ChoreItem';
 import AddChore from '../AddChore/AddChore';
-import Header from '../Header/Header';
 
-
-let choreList = [
+const choreList = [
   {
     name: 'Clean Kitchen Surfaces',
     frequency: 3,
@@ -31,6 +29,7 @@ class App extends Component {
   } // end constructor props
 
   addChore = (chore) => {
+    console.log('in addChore wiht', chore)
     this.setState({
       choreList: [...this.state.choreList, chore]
     })
@@ -39,13 +38,12 @@ class App extends Component {
   render() {
     return (
         <div className="App">
-          {<Header/>}
           <div>
             {<AddChore choreList={this.state.choreList} addChore={this.addChore}/>}
           </div>
-          <form >
+          <form className="choreList">
             {this.state.choreList.map((chore, i) => <ChoreItem key={i} chore={chore.name} />)}
-        </form>
+          </form>
         </div>
       );
   }
