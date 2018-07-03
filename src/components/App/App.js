@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import ChoreItem from '../ChoreItem/ChoreItem';
 import AddChore from '../AddChore/AddChore';
 
+
 let choreList = [
   {
     name: 'Clean Kitchen Surfaces',

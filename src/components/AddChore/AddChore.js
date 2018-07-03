@@ -1,11 +1,38 @@
 import React, { Component } from 'react';
+import FrequencySelect from '../FrequencySelect/FrequencySelect';
+
+const frequencyChoices = [
+    {
+        text: '- Select -',
+        value: 0
+    },
+    {
+        text: 'Every Day',
+        value: 1
+    },
+    {
+        text: 'Every Other Day',
+        value: 2
+    },
+    {
+        text: 'Every Week',
+        value: 7
+    },
+    {
+        text: 'Every Other Week',
+        value: 14
+    },
+    {
+        text: 'Once a Month',
+        value: 30
+    },
+];
 
 class AddChore extends Component {
     constructor(props){ 
         super(props);
-
         this.state = {
-            chore: {
+            newChore: {
                 name: '',
                 frequency: ''
             },
@@ -15,7 +42,7 @@ class AddChore extends Component {
 
     handleChangeFor = propertyName => event => {
         this.setState({
-          chore: {
+          newChore: {
             ...this.state.chore,
            [propertyName]: event.target.value,
           }
@@ -41,21 +68,12 @@ class AddChore extends Component {
         return (
             <form onSubmit={this.handleSubmit}>
                 <label >New Chore</label>
-                <input type="text" id="name" value={this.state.chore.name} onChange={this.handleChangeFor('name')}/>
+                <input type="text" id="name" value={this.state.newChore.name} onChange={this.handleChangeFor('name')}/>
                 <br/>
                 <label >Frequency</label>
-                <select value={this.state.chore.frequency} onChange={this.handleChangeFor('frequency')}>
-                        <option value="">- Select -</option>
-                        <option value="1">Every Day</option>
-                        <option value="2">Every 2 Days</option>
-                        <option value="3">Every 3 Days</option>
-                        <option value="4">Every 4 Days</option>
-                        <option value="5">Every 5 Days</option>
-                        <option value="6">Every 6 Days</option>
-                        <option value="7">Once a Week</option>
-                        <option value="14">Every Other Week</option>
-                        <option value="30">Once a Month</option>
-                    </select>
+                <select value={this.state.newChore.frequency} onChange={this.handleChangeFor('frequency')}>
+                    {frequencyChoices.map((choice, i) => <FrequencySelect key={i} choiceText={choice.text} choiceValue={choice.value}/>)}
+                </select>
                 <br/>
                 <input type="submit" value="Submit" />
             </form>
