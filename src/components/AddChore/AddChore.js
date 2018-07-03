@@ -26,9 +26,10 @@ const frequencyChoices = [
         text: 'Once a Month',
         value: 30
     },
-];
+]; // end frequencyChoices
 
 class AddChore extends Component {
+    
     constructor(props){ 
         super(props);
         this.state = {
@@ -45,9 +46,9 @@ class AddChore extends Component {
           newChore: {
             ...this.state.chore,
            [propertyName]: event.target.value,
-          }
-        })
-    }
+          } // end newChore
+        }) // end setState
+    } // end handleChangeFor
 
     handleSubmit = (e) => {
         e.preventDefault();
@@ -61,8 +62,8 @@ class AddChore extends Component {
               name:'',
               frequency: '',
             }
-        })
-    }
+        }) // end setState
+    } // end handleSubmit
 
     render() {
         return (
@@ -77,8 +78,8 @@ class AddChore extends Component {
                 <br/>
                 <input type="submit" value="Submit" />
             </form>
-        );
-    }
-}
+        ); // end return
+    } // end render
+} // end extends
 
 export default AddChore;
